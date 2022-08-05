@@ -1,4 +1,4 @@
-package com.sweng455.meetingschedulingsystem.views;
+package com.sweng455.meetingschedulingsystem.views.userviews;
 
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -14,6 +14,10 @@ public class UserView extends VerticalLayout {
 
     public UserView()
     {
+        addClassName("user-view");
+        setSizeFull();
+        setDefaultHorizontalComponentAlignment(Alignment.CENTER);
+        setJustifyContentMode(JustifyContentMode.CENTER);
         add(new H1("Client Dashboard"));
     }
 }

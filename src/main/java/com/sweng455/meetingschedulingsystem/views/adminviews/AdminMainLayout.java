@@ -1,4 +1,4 @@
-package com.sweng455.meetingschedulingsystem.views;
+package com.sweng455.meetingschedulingsystem.views.adminviews;
 
 import com.sweng455.meetingschedulingsystem.security.SecurityService;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -8,7 +8,6 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 
 public class AdminMainLayout extends AppLayout {
@@ -38,12 +37,13 @@ public class AdminMainLayout extends AppLayout {
     }
 
     private void createDrawer() {
-        /*RouterLink listLink = new RouterLink("List", ListView.class);
-        listLink.setHighlightCondition(HighlightConditions.sameLocation());*/
-
         addToDrawer(new VerticalLayout(
                 //listLink,
-                new RouterLink("Dashboard", AdminView.class)
+                new RouterLink("User Complaints", AdminComplaintsView.class),
+                new RouterLink("User Meetings", AdminMeetingView.class),
+                new RouterLink("Admin Dashboard", AdminView.class),
+                new RouterLink("Create Admin", CreateAdminView.class),
+                new RouterLink("Manage User Billing", ManageBillingView.class)
         ));
     }
 }

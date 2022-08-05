@@ -1,4 +1,4 @@
-package com.sweng455.meetingschedulingsystem.views;
+package com.sweng455.meetingschedulingsystem.views.userviews;
 
 import com.sweng455.meetingschedulingsystem.security.SecurityService;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -7,6 +7,8 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.RouterLink;
 
 public class UserMainLayout extends AppLayout {
 
@@ -36,12 +38,11 @@ public class UserMainLayout extends AppLayout {
     }
 
     private void createDrawer() {
-        /*RouterLink listLink = new RouterLink("List", ListView.class);
-        listLink.setHighlightCondition(HighlightConditions.sameLocation());
-
         addToDrawer(new VerticalLayout(
-                listLink,
-                new RouterLink("Dashboard", DashboardView.class)
-        ));*/
+                new RouterLink("File Complaint", FileComplaintView.class),
+                new RouterLink("Manage Profile", ManageProfileView.class),
+                new RouterLink("Manage Meetings", MeetingsView.class),
+                new RouterLink("User Dashboard", UserView.class)
+        ));
     }
 }

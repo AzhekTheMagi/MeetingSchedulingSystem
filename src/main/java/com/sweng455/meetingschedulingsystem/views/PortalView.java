@@ -1,12 +1,11 @@
 package com.sweng455.meetingschedulingsystem.views;
 
-import com.vaadin.flow.component.html.Anchor;
+import com.sweng455.meetingschedulingsystem.views.adminviews.AdminView;
+import com.sweng455.meetingschedulingsystem.views.userviews.UserView;
 import com.vaadin.flow.component.html.NativeButton;
-import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.springframework.security.core.context.SecurityContext;
 
 import javax.annotation.security.PermitAll;
 
