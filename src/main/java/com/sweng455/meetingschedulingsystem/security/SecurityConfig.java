@@ -12,11 +12,23 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Configuration
 public class SecurityConfig extends VaadinWebSecurityConfigurerAdapter {
 
+    private static final String LOGIN_URL = "/login";
+    private static final String LOGOUT_URL = "/logout";
+    private static final String LOGOUT_SUCCESS_URL = "/";
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // Set default security policy that permits Vaadin internal requests and
         // denies all other
         super.configure(http);
+        /*
+        http.oauth2Login().loginPage(LOGIN_URL).permitAll()
+                .and()
+                .formLogin().loginPage(LOGIN_URL).permitAll().loginProcessingUrl(LOGIN_URL).failureUrl(LOGIN_URL)
+                .and()
+                .logout().logoutSuccessUrl(LOGOUT_SUCCESS_URL);
+         */
+
         setLoginView(http, LoginView.class, "/logout");
     }
 
