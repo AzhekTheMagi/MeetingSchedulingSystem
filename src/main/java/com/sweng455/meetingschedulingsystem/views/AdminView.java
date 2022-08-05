@@ -1,0 +1,19 @@
+package com.sweng455.meetingschedulingsystem.views;
+
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+import javax.annotation.security.RolesAllowed;
+
+@Route(value = "admindashboard", layout = AdminMainLayout.class)
+@PageTitle("Admin Dashboard | PennStateSoft")
+@RolesAllowed("ADMIN")
+public class AdminView extends VerticalLayout {
+
+    public AdminView()
+    {
+        add(new H1("Admin Dashboard"));
+    }
+}
