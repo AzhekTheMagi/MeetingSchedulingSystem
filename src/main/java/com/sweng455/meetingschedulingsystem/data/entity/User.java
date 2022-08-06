@@ -10,15 +10,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-public class Client extends AbstractEntity {
+public class User extends AbstractEntity {
     private String firstName;
     private String lastName;
     private String email;
 
     @Column(nullable = false, unique = true)
     private String userName;
-
-    private String password;
+    private String passwordHash;
+    private Role role;
 
     @OneToMany
     private List<Meetings> meeting = new LinkedList<>();

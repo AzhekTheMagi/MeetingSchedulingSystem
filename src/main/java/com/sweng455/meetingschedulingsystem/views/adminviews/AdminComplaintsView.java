@@ -1,5 +1,6 @@
 package com.sweng455.meetingschedulingsystem.views.adminviews;
 
+import com.sweng455.meetingschedulingsystem.views.mainlayouts.AdminMainLayout;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;

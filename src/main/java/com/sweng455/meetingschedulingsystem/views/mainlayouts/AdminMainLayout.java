@@ -1,6 +1,8 @@
-package com.sweng455.meetingschedulingsystem.views.userviews;
+package com.sweng455.meetingschedulingsystem.views.mainlayouts;
 
 import com.sweng455.meetingschedulingsystem.security.SecurityService;
+import com.sweng455.meetingschedulingsystem.views.adminviews.*;
+import com.vaadin.flow.component.HasElement;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
@@ -10,11 +12,11 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.RouterLink;
 
-public class UserMainLayout extends AppLayout {
+public class AdminMainLayout extends AppLayout {
 
     private final SecurityService securityService;
 
-    public UserMainLayout(SecurityService securityService) {
+    public AdminMainLayout(SecurityService securityService) {
         this.securityService = securityService;
         createHeader();
         createDrawer();
@@ -34,15 +36,16 @@ public class UserMainLayout extends AppLayout {
         header.addClassNames("py-0", "px-m");
 
         addToNavbar(header);
-
     }
 
     private void createDrawer() {
         addToDrawer(new VerticalLayout(
-                new RouterLink("File Complaint", FileComplaintView.class),
-                new RouterLink("Manage Profile", ManageProfileView.class),
-                new RouterLink("Manage Meetings", MeetingsView.class),
-                new RouterLink("User Dashboard", UserView.class)
+                //listLink,
+                new RouterLink("User Complaints", AdminComplaintsView.class),
+                new RouterLink("User Meetings", AdminMeetingView.class),
+                new RouterLink("Admin Dashboard", AdminView.class),
+                new RouterLink("Create Admin", CreateAdminView.class),
+                new RouterLink("Manage User Billing", ManageBillingView.class)
         ));
     }
 }
