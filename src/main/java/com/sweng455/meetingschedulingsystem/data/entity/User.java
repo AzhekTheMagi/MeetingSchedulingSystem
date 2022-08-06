@@ -1,6 +1,8 @@
 package com.sweng455.meetingschedulingsystem.data.entity;
 
 import com.sweng455.meetingschedulingsystem.data.AbstractEntity;
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,20 +13,76 @@ import java.util.List;
 
 @Entity
 public class User extends AbstractEntity {
+
     private String firstName;
     private String lastName;
     private String email;
-
+    @OneToMany
+    private List<Meetings> meeting = new LinkedList<>();
+    @OneToOne
+    private Billing billing;
     @Column(nullable = false, unique = true)
     private String userName;
+    private String activationCode;
+    private String passwordSalt;
     private String passwordHash;
     private Role role;
 
-    @OneToMany
-    private List<Meetings> meeting = new LinkedList<>();
+    public User() {
 
-    @OneToOne
-    private Billing billing;
+    }
+
+    public User(String username, String password, Role role) {
+        this.userName = username;
+        this.role     = role;
+        this.passwordSalt = RandomStringUtils.random(32);
+        this.passwordHash = DigestUtils.sha1Hex(password + passwordSalt);
+        this.activationCode = RandomStringUtils.randomAlphanumeric(32);
+    }
+
+    public boolean checkPassword(String password) {
+        return DigestUtils.sha1Hex(password + passwordSalt).equals(passwordHash);
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(String activationCode) {
+        this.activationCode = activationCode;
+    }
+
+    public String getPasswordSalt() {
+        return passwordSalt;
+    }
+
+    public void setPasswordSalt(String passwordSalt) {
+        this.passwordSalt = passwordSalt;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -58,11 +116,11 @@ public class User extends AbstractEntity {
         this.meeting = meeting;
     }
 
-    public String getUserName() {
-        return userName;
+    public Billing getBilling() {
+        return billing;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setBilling(Billing billing) {
+        this.billing = billing;
     }
 }
