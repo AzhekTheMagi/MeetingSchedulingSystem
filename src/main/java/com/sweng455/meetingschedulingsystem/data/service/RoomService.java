@@ -2,13 +2,11 @@ package com.sweng455.meetingschedulingsystem.data.service;
 
 import com.sweng455.meetingschedulingsystem.data.entity.Room;
 import com.sweng455.meetingschedulingsystem.data.repository.RoomRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.vaadin.crudui.crud.CrudListener;
 import java.util.List;
 
 @Service
-//@RequiredArgsConstructor
 public class RoomService implements CrudListener<Room> {
 
     private final RoomRepository repository;

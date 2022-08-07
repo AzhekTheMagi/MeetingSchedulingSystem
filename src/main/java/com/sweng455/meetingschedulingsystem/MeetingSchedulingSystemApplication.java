@@ -13,14 +13,14 @@ import org.vaadin.artur.helpers.LaunchUtil;
  * The entry point of the Spring Boot application.
  */
 @SpringBootApplication
-@NpmPackage(value = "lumo-css-framework", version = "^4.0.10")
-@Theme("pennstatesofttheme")
+//@NpmPackage(value = "lumo-css-framework", version = "^4.0.10")
+//@Theme("pennstatesofttheme")
 @PWA(name = "PennStateSoftCRM", shortName = "CRM", offlinePath="offline.html", offlineResources = { "./images/offline.png"})
 public class MeetingSchedulingSystemApplication extends SpringBootServletInitializer implements AppShellConfigurator {
 
     public static void main(String[] args) {
-        LaunchUtil.launchBrowserInDevelopmentMode(SpringApplication.run(MeetingSchedulingSystemApplication.class, args));
-        //SpringApplication.run(MeetingSchedulingSystemApplication.class, args);
+        //LaunchUtil.launchBrowserInDevelopmentMode(SpringApplication.run(MeetingSchedulingSystemApplication.class, args));
+        SpringApplication.run(MeetingSchedulingSystemApplication.class, args);
     }
 
 }

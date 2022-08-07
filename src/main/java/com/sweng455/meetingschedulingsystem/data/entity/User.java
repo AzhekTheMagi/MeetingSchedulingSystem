@@ -17,6 +17,7 @@ public class User extends AbstractEntity {
     private String firstName;
     private String lastName;
     private String email;
+    private boolean active;
     @OneToMany
     private List<Meetings> meeting = new LinkedList<>();
     @OneToOne
@@ -36,12 +37,12 @@ public class User extends AbstractEntity {
         this.userName = username;
         this.role     = role;
         this.passwordSalt = RandomStringUtils.random(32);
-        this.passwordHash = DigestUtils.sha1Hex(password + passwordSalt);
+        this.passwordHash = DigestUtils.sha1Hex(password); //+ passwordSalt);
         this.activationCode = RandomStringUtils.randomAlphanumeric(32);
     }
 
     public boolean checkPassword(String password) {
-        return DigestUtils.sha1Hex(password + passwordSalt).equals(passwordHash);
+        return DigestUtils.sha1Hex(password).equals(this.passwordHash); //+ passwordSalt).equals(passwordHash);
     }
 
     public String getUserName() {
@@ -122,5 +123,13 @@ public class User extends AbstractEntity {
 
     public void setBilling(Billing billing) {
         this.billing = billing;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
