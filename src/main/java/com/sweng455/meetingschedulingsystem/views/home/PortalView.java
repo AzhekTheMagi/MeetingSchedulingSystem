@@ -2,16 +2,12 @@ package com.sweng455.meetingschedulingsystem.views.home;
 
 import com.sweng455.meetingschedulingsystem.views.adminviews.AdminView;
 import com.sweng455.meetingschedulingsystem.views.userviews.UserView;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.NativeButton;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
 
-import javax.annotation.security.PermitAll;
-
-//@Route(value = "", layout = PortalMainLayout.class)
 @PageTitle("Portal")
-@PermitAll
 public class PortalView extends VerticalLayout {
 
     public PortalView() {
@@ -21,7 +17,8 @@ public class PortalView extends VerticalLayout {
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
 
-        addButton();
+        add(new Image("./images/logo.png", "PennState Logo"));
+        //addButton();
     }
 
     private void addButton() {

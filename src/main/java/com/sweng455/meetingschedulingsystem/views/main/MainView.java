@@ -1,4 +1,4 @@
-package com.sweng455.meetingschedulingsystem.views.mainlayouts;
+package com.sweng455.meetingschedulingsystem.views.main;
 
 import java.util.Optional;
 
@@ -51,7 +51,7 @@ public class MainView extends AppLayout {
         layout.add(new DrawerToggle());
         viewTitle = new H1();
         layout.add(viewTitle);
-        layout.add(new Image("images/user.svg", "Avatar"));
+        //layout.add(new Image("images/user.svg", "Avatar"));
         return layout;
     }
 
@@ -65,8 +65,8 @@ public class MainView extends AppLayout {
         HorizontalLayout logoLayout = new HorizontalLayout();
         logoLayout.setId("logo");
         logoLayout.setAlignItems(FlexComponent.Alignment.CENTER);
-        logoLayout.add(new Image("images/logo.png", "auth-example logo"));
-        logoLayout.add(new H1("auth-example"));
+        logoLayout.add(new Image("images/logo.png", "PennState logo"));
+        logoLayout.add(new H1("Schedule Meeting System"));
         layout.add(logoLayout, menu);
         return layout;
     }

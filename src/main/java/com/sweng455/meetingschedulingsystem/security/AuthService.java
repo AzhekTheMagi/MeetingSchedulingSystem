@@ -4,17 +4,16 @@ import com.sweng455.meetingschedulingsystem.data.entity.Role;
 import com.sweng455.meetingschedulingsystem.data.entity.User;
 import com.sweng455.meetingschedulingsystem.data.repository.UserRepository;
 import com.sweng455.meetingschedulingsystem.views.adminviews.*;
+import com.sweng455.meetingschedulingsystem.views.home.PortalView;
 import com.sweng455.meetingschedulingsystem.views.logout.LogoutView;
-import com.sweng455.meetingschedulingsystem.views.mainlayouts.MainView;
+import com.sweng455.meetingschedulingsystem.views.main.MainView;
 import com.sweng455.meetingschedulingsystem.views.userviews.FileComplaintView;
 import com.sweng455.meetingschedulingsystem.views.userviews.ManageProfileView;
 import com.sweng455.meetingschedulingsystem.views.userviews.MeetingsView;
 import com.sweng455.meetingschedulingsystem.views.userviews.UserView;
 import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.router.RouteConfiguration;
 import com.vaadin.flow.server.VaadinSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
@@ -62,6 +61,7 @@ public class AuthService {
         var routes = new ArrayList<AuthorizedRoute>();
 
         if (role.equals(Role.USER)) {
+            routes.add(new AuthorizedRoute("portal-dashboard", "Portal", PortalView.class));
             routes.add(new AuthorizedRoute("user-dashboard", "User Home", UserView.class));
             routes.add(new AuthorizedRoute("file-complaint", "File Complaint", FileComplaintView.class));
             routes.add(new AuthorizedRoute("manage-profile", "Manage Profile", ManageProfileView.class));
@@ -69,6 +69,7 @@ public class AuthService {
             routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
 
         } else if (role.equals(Role.ADMIN)) {
+            routes.add(new AuthorizedRoute("portal-dashboard", "Portal", PortalView.class));
             routes.add(new AuthorizedRoute("admin-dashboard", "Admin Home", AdminView.class));
             routes.add(new AuthorizedRoute("admin-complaints", "Manage Complaints", AdminComplaintsView.class));
             routes.add(new AuthorizedRoute("admin-meeting", "View Meetings", AdminMeetingView.class));
