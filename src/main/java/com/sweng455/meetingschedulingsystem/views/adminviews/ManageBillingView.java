@@ -7,7 +7,6 @@ import com.vaadin.flow.router.Route;
 
 import javax.annotation.security.RolesAllowed;
 
-//@Route(value = "managebillingview", layout = AdminMainLayout.class)
 @PageTitle("Manage User Billing | PennStateSoft")
 @RolesAllowed("ADMIN")
 public class ManageBillingView extends VerticalLayout {

@@ -18,9 +18,7 @@ import com.vaadin.flow.server.auth.AnonymousAllowed;
 @PageTitle("Login | PennStateSoft")
 @AnonymousAllowed
 //@CssImport("./styles/views/login/login-view.css")
-public class LoginView extends VerticalLayout {//Div { //implements BeforeEnterObserver {
-
-    //private final LoginForm login = new LoginForm();
+public class LoginView extends VerticalLayout {
 
     public LoginView(AuthService authService) {
         addClassName("login-view");

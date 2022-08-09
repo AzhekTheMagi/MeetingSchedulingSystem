@@ -85,7 +85,7 @@ public class AuthService {
         User user = userRepository.save(new User(email, password, Role.USER));
         String text = "http://localhost:8080/activate?code=" + user.getActivationCode();
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@example.com");
+        message.setFrom("sweng455@pennstatesoft.com");
         message.setSubject("Confirmation email");
         message.setText(text);
         message.setTo(email);
