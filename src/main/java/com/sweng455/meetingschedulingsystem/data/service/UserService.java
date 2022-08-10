@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.vaadin.artur.helpers.CrudService;
 import org.vaadin.crudui.crud.CrudListener;
+
 import java.util.List;
 
 @Service
-public class UserService extends CrudService<User, Integer> {
+public class UserService implements CrudListener<User> {//extends CrudService<User, Integer> {
     private final UserRepository repository;
 
     public UserService(@Autowired UserRepository repository)
@@ -20,7 +21,7 @@ public class UserService extends CrudService<User, Integer> {
     public UserRepository getRepository() {
         return this.repository;
     }
-/*
+
     @Override
     public List<User> findAll() {
         return this.repository.findAll();
@@ -40,6 +41,4 @@ public class UserService extends CrudService<User, Integer> {
     public void delete(User user) {
         this.repository.delete(user);
     }
-
- */
 }

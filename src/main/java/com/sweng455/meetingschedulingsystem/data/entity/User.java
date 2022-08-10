@@ -3,7 +3,6 @@ package com.sweng455.meetingschedulingsystem.data.entity;
 import com.sweng455.meetingschedulingsystem.data.AbstractEntity;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
